@@ -65,6 +65,9 @@ async function checkSources(dir) {
 await checkSources(root);
 
 // 单元测试（node:test，不调用外部服务）
-execFileSync(process.execPath, ["--test", "test/"], { cwd: root, stdio: "inherit" });
+// 显式列出测试文件：Node 24 不把目录参数当作测试目录
+const tests = (await readdir(path.join(root, "test"))).filter((f) => /\.test\.m?js$/.test(f)).sort().map((f) => path.join("test", f));
+assert.ok(tests.length, "No unit tests found in test/");
+execFileSync(process.execPath, ["--test", ...tests], { cwd: root, stdio: "inherit" });
 
 console.log("Checked Agent entry files, plugin manifest, " + sources + " JavaScript file(s) and unit tests.");
