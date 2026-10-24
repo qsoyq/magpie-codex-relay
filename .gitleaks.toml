@@ -1,0 +1,5 @@
+title = "magpie-codex-relay secret scanning"
+
+# Keep all built-in rules; add only narrowly scoped, documented exceptions.
+[extend]
+useDefault = true

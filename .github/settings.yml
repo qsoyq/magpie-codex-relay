@@ -1,0 +1,37 @@
+# 这是 Settings App (https://github.com/apps/settings) 使用的声明文件。
+# GitHub 本身不会自动读取；启用 App 才会同步，也可按本文手动配置。
+# 以个人维护、未来默认分支 main 为基准；不会随本地创建文件自动修改远端。
+repository:
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+
+labels:
+  - name: bug
+    color: d73a4a
+    description: 可复现的缺陷
+  - name: enhancement
+    color: a2eeef
+    description: 新功能或已有功能改进
+  - name: maintenance
+    color: "5319e7"
+    description: 维护、重构、测试与仓库配置
+
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 0
+        require_code_owner_reviews: false
+        dismiss_stale_reviews: true
+      required_status_checks:
+        strict: true
+        contexts: [check, pre-commit, gitleaks]
+      enforce_admins: false
+      required_conversation_resolution: true
+      restrictions: null

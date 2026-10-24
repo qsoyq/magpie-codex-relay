@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.sandbox/
+plugin-auth.json
+*.pem
+*.key
+
+# Agent-local instructions and permissions; keep shared configuration trackable.
+CLAUDE.local.md
+.claude/settings.local.json

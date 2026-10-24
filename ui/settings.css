@@ -1,0 +1,16 @@
+.cr { display: flex; flex-direction: column; gap: 14px; padding: 4px 2px 8px; }
+.cr section { display: flex; flex-direction: column; gap: 6px; }
+.cr h4 { margin: 0 0 2px; }
+.cr label { display: flex; flex-direction: column; gap: 4px; }
+.cr label.choice { flex-direction: row; align-items: center; gap: 6px; }
+.cr .indent { margin-left: 22px; display: flex; flex-direction: column; gap: 4px; }
+.cr .indent[aria-disabled="true"] { opacity: 0.5; }
+.cr input[type="text"], .cr input[type="url"], .cr select, .cr textarea { width: 100%; box-sizing: border-box; }
+.cr textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; resize: vertical; }
+.cr .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cr .hint { margin: 0; font-size: 0.85em; opacity: 0.7; }
+.cr .warn { margin: 0; font-size: 0.9em; color: var(--magpie-warning, #b26a00); }
+.cr .actions { display: flex; align-items: center; gap: 10px; }
+.cr .errors { margin: 0; padding-left: 18px; color: var(--magpie-danger, #c62828); }
+.cr #status.ok { color: var(--magpie-success, #2e7d32); }
+.cr #status.err { color: var(--magpie-danger, #c62828); }

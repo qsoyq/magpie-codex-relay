@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+# 当前没有第三方运行时或开发依赖；引入依赖和锁文件后再添加包管理器更新规则。

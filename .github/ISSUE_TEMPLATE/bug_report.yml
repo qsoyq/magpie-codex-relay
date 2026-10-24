@@ -1,0 +1,39 @@
+name: 缺陷反馈
+description: 记录可复现的插件问题。
+title: "fix: "
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 插件版本或提交
+      placeholder: 0.1.0 或 main@abc1234
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境
+      description: magpie 版本、操作系统、使用的 Agent 及版本、上游中转；请求头和日志先脱敏。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 提供最小命令或操作步骤，配置和日志请先脱敏。
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 预期与实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: 验收方式
+      description: 修复后应如何确认问题消失？
+    validations:
+      required: true

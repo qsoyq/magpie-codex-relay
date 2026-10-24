@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="settings.css">
+<script src="_magpie/bridge.js"></script>
+<script src="core.js"></script>
+<script src="settings.js" defer></script>
+
+<div class="cr">
+  <section>
+    <h4>上游地址和 key</h4>
+    <label class="choice"><input type="radio" name="source" value="inherit"> 复用已有供应商的地址和 key（推荐）</label>
+    <div class="indent" data-for="inherit">
+      <select id="inheritFrom"></select>
+      <p class="hint">从所选的 magpie 自定义供应商读取 Responses 地址和 key，不复制密钥，key 轮换后自动跟随。只支持自定义供应商。</p>
+    </div>
+    <label class="choice"><input type="radio" name="source" value="manual"> 手动填写 baseURL</label>
+    <div class="indent" data-for="manual">
+      <input id="baseURL" type="url" placeholder="https://relay.example.com/v1" spellcheck="false">
+      <p class="hint">key 不在这里填（面板能读到的选项都应视为公开）：用 <code>magpie plugin login codex-relay</code> 或「供应商」页登录时填写。</p>
+    </div>
+    <p class="warn" id="apiKeyWarn" hidden>选项里有明文 <code>apiKey</code>。建议改为复用供应商或登录时填写，再用命令行把它从选项里删除。</p>
+  </section>
+
+  <section>
+    <h4>模型</h4>
+    <p class="hint">模型列表来自上游 <code>/models</code>，在「供应商 → Codex Relay」里选择要开放哪些，这里不用填。模型名保持上游 id，例如 <code>codex-relay/vendor/model-a</code>。</p>
+    <p class="hint">以下三个字段留空时插件不声明对应能力，由供应商页面决定（高级 → 上下文窗口、最大输出；模型 → 名称与推理档位）。这里填的值对所有模型生效，请按上游实际能力填写。</p>
+    <div class="grid">
+      <label>上下文长度<input id="context" type="text" inputmode="numeric" placeholder="留空不声明"></label>
+      <label>最大输出<input id="output" type="text" inputmode="numeric" placeholder="留空不声明"></label>
+    </div>
+    <label for="variants">推理档位（逗号分隔，留空不声明）</label>
+    <input id="variants" type="text" placeholder="留空不声明" spellcheck="false">
+    <label class="choice"><input id="image" type="checkbox"> 接受图片输入</label>
+  </section>
+
+  <section>
+    <label class="choice"><input id="debug" type="checkbox"> 调试日志（只记录出站请求头的名字，不记录值）</label>
+  </section>
+
+  <div class="actions">
+    <button id="save" class="primary" type="button">保存</button>
+    <span id="status" role="status"></span>
+  </div>
+  <ul id="errors" class="errors" hidden></ul>
+  <p class="hint">保存后几秒内自动生效。identity、setHeaders 等高级选项不在这里显示，保存时原样保留，用 <code>magpie plugin options</code> 修改。</p>
+</div>

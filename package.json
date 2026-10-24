@@ -1,0 +1,39 @@
+{
+  "name": "magpie-codex-relay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "magpie 供应商插件：给非 Codex Agent 的 Responses 请求补上 Codex 客户端请求头后转发到中转",
+  "main": "./index.js",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "magpie-plugin",
+    "codex"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qsoyq/magpie-codex-relay.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs"
+  },
+  "magpie": {
+    "panels": [
+      {
+        "slot": "settings",
+        "file": "ui/settings.html",
+        "title": "Codex Relay",
+        "titles": {
+          "zh": "Codex Relay 设置"
+        }
+      }
+    ],
+    "permissions": [
+      "providers:list"
+    ]
+  }
+}

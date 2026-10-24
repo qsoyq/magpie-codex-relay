@@ -1,0 +1,38 @@
+name: 维护任务
+description: 记录重构、调研、测试、文档或 CI 工作。
+title: "chore: "
+labels: [maintenance]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: 类型
+      options:
+        - 维护与依赖
+        - 重构
+        - 调研
+        - 测试
+        - 文档
+        - CI 与仓库配置
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 背景与目标
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 涉及的入口、选项、测试、文档或公共文件。
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准与检查方法
+      value: "- [ ] "
+    validations:
+      required: true
